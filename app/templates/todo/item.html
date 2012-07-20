@@ -1,0 +1,10 @@
+<div class="todo <%= done && "done" %>">
+  <div class="display">
+    <label class="todo-content <%= me && "align-right" %>">
+      <% if(!me) { %> <img src="/assets/img/simskoy.png" /> <% } %> <%= content %>
+    </label>
+  </div>
+  <div class="edit">
+    <input class="todo-input" type="text" value="<%= content %>">
+  </div>
+</div>
