@@ -145,10 +145,16 @@ function(app, Backbone) {
       $.get('http://www.simsimi.com/func/req?lc=th&msg=' + msg, function(data) {
         var json = $.parseJSON($(data.responseText).text().trim());
         self.collection.add(self.reply(json.response.speakThai().toSkoy()));
+        self.scrollToBottom();
       });
 
       this.collection.add(this.newAttributes());
+      this.scrollToBottom();
       this.$("#new-todo").val("");
+    },
+
+    scrollToBottom: function() {
+      window.scrollTo(0, document.body.scrollHeight);
     },
 
     // Lazily show the tooltip that tells you to press `enter` to save
