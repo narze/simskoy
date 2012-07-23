@@ -33,7 +33,8 @@ function(app, Backbone) {
         done: this.model.get("done"),
         content: this.model.get("content"),
         me: this.model.get("me"),
-        ggt: this.model.get("ggt")
+        ggt: this.model.get("ggt"),
+        thai: this.model.get("thai")
       };
     },
 
@@ -100,7 +101,8 @@ function(app, Backbone) {
         order: this.collection.first(),
         done: false,
         me: false,
-        ggt: 'http://translate.google.com/translate_tts?tl=th&q=' + encodeURIComponent('สวัสดีจ้ะ')
+        ggt: 'http://translate.google.com/translate_tts?tl=th&q=' + encodeURIComponent('สวัสดีจ้ะ') + '&---->ถ้าErrorคลิกที่นี่แล้วกดEnter<----',
+        thai: 'สวัสดีจ้ะ'
       });
 
       return manage(this).render();
@@ -144,7 +146,7 @@ function(app, Backbone) {
       var self = this;
       $.get('http://www.simsimi.com/func/req?lc=th&msg=' + msg, function(data) {
         var json = $.parseJSON($(data.responseText).text().trim());
-        self.collection.add(self.reply(json.response.speakThai().toSkoy()));
+        self.collection.add(self.reply(json.response.speakThai().toSkoy(), json.response));
         self.scrollToBottom();
       });
 
@@ -187,17 +189,19 @@ function(app, Backbone) {
         order: this.collection.nextOrder(),
         done: false,
         me: true,
-        ggt: 'http://translate.google.com/translate_tts?tl=th&q=' + encodeURIComponent(this.$("#new-todo").val())
+        ggt: 'http://translate.google.com/translate_tts?tl=th&q=' + encodeURIComponent(this.$("#new-todo").val()) + '&---->ถ้าErrorคลิกที่นี่แล้วกดEnter<----',
+        thai: this.$("#new-todo").val()
       };
     },
 
-    reply: function(msg) {
+    reply: function(msg, thai) {
       return {
         content: msg,
         order: this.collection.nextOrder(),
         done: false,
         me: false,
-        ggt: 'http://translate.google.com/translate_tts?tl=th&q=' + encodeURIComponent(this.$("#new-todo").val())
+        ggt: 'http://translate.google.com/translate_tts?tl=th&q=' + encodeURIComponent(thai) + '&---->ถ้าErrorคลิกที่นี่แล้วกดEnter<----',
+        thai: thai
       };
     },
 
