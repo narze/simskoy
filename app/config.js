@@ -29,6 +29,8 @@ require.config({
     // Cross domain ajax
     "plugins/jquery.xdomainajax": ["jquery"],
 
-    "plugins/toskoy": []
+    "plugins/toskoy": [],
+
+    "plugins/speakthai": []
   }
 });

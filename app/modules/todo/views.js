@@ -6,7 +6,8 @@ define([
 
   //Plugins
   "plugins/jquery.xdomainajax",
-  "plugins/toskoy"
+  "plugins/toskoy",
+  "plugins/speakthai"
 ],
 
 function(app, Backbone) {
@@ -94,7 +95,7 @@ function(app, Backbone) {
 
       //Default hello message
       this.collection.add({
-        content: 'ดลีร์จ้',
+        content: 'ษวัสดลีร์จ้',
         order: this.collection.first(),
         done: false,
         me: false
@@ -113,6 +114,8 @@ function(app, Backbone) {
           model: item
         })).render();
       }, this);
+
+      'สวัสดีจ้ะ'.speakThai();
     }
   });
 
@@ -139,7 +142,7 @@ function(app, Backbone) {
       var self = this;
       $.get('http://www.simsimi.com/func/req?lc=th&msg=' + msg, function(data) {
         var json = $.parseJSON($(data.responseText).text().trim());
-        self.collection.add(self.reply(json.response.toSkoy()));
+        self.collection.add(self.reply(json.response.speakThai().toSkoy()));
       });
 
       this.collection.add(this.newAttributes());
