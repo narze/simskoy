@@ -1,7 +1,7 @@
 <div class="todo <%= done && "done" %>">
   <div class="display">
     <label class="todo-content <%= me && "align-right" %>">
-      <% if(!me) { %> <img src="/assets/img/simskoy.png" /> <% } %> <%= content %>
+      <% if(!me) { %> <img src="assets/img/simskoy.png" /> <% } %> <%= content %>
     </label><% if(!me) { %> <a style="font-size: 8px" target="_blank" href="<%= ggt %>">(<%= thai %>)</a> <% } %>
   </div>
 </div>
