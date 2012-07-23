@@ -1,10 +1,7 @@
 <div class="todo <%= done && "done" %>">
   <div class="display">
     <label class="todo-content <%= me && "align-right" %>">
-      <% if(!me) { %> <img src="/assets/img/simskoy.png" /> <% } %> <%= content %>
+      <% if(!me) { %> <img src="/assets/img/simskoy.png" /> <% } %> <%= content %> <% if(!me) { %> <a target="_blank" href="<%= ggt %>">...</a> <% } %>
     </label>
-  </div>
-  <div class="edit">
-    <input class="todo-input" type="text" value="<%= content %>">
   </div>
 </div>

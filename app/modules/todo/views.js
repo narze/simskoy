@@ -32,7 +32,8 @@ function(app, Backbone) {
       return {
         done: this.model.get("done"),
         content: this.model.get("content"),
-        me: this.model.get("me")
+        me: this.model.get("me"),
+        ggt: this.model.get("ggt")
       };
     },
 
@@ -98,7 +99,8 @@ function(app, Backbone) {
         content: 'ษวัสดลีร์จ้',
         order: this.collection.first(),
         done: false,
-        me: false
+        me: false,
+        ggt: 'http://translate.google.com/translate_tts?tl=th&q=' + encodeURIComponent('สวัสดีจ้ะ')
       });
 
       return manage(this).render();
@@ -178,7 +180,8 @@ function(app, Backbone) {
         content: this.$("#new-todo").val(),
         order: this.collection.nextOrder(),
         done: false,
-        me: true
+        me: true,
+        ggt: 'http://translate.google.com/translate_tts?tl=th&q=' + encodeURIComponent(this.$("#new-todo").val())
       };
     },
 
@@ -187,7 +190,8 @@ function(app, Backbone) {
         content: msg,
         order: this.collection.nextOrder(),
         done: false,
-        me: false
+        me: false,
+        ggt: 'http://translate.google.com/translate_tts?tl=th&q=' + encodeURIComponent(this.$("#new-todo").val())
       };
     },
 
