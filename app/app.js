@@ -14,7 +14,7 @@ function($, _, Backbone) {
   // creation.
   var app = {
     // The root path to run the application.
-    root: "/"
+    root: "simskoy/"
   };
 
   // Localize or create a new JavaScript Template object.
@@ -31,11 +31,11 @@ function($, _, Backbone) {
       path = path + ".html";
 
       if (!JST[path]) {
-        $.ajax({ url: app.root + path, async: false }).then(function(contents) {
+        $.ajax({ url: path, async: false }).then(function(contents) {
           JST[path] = _.template(contents);
         });
-      } 
-      
+      }
+
       return JST[path];
     }
   });
