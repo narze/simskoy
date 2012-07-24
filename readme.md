@@ -1,4 +1,4 @@
-SimSkoy
+[SimSkoy](http://narze.github.com/simskoy)
 =======
 
 Feel annoyed with [Simsimi](http://simsimi.com) that talks [Skoy language](http://github.com/narze/toskoy)
